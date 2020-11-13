@@ -1,0 +1,54 @@
+{
+  "name": "fbs-integracao-scrum",
+  "version": "0.0.1",
+  "description": "Sistema de Integração do Scrum com a api do site fbssistemas.com.br",
+  "main": "main.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development electron .",
+    "build": "cross-env NODE_ENV=production electron-builder --win",
+    "publish": "cross-env NODE_ENV=production electron-builder --win -p onTagOrDraft"
+  },
+  "build": {
+    "appId": "br.com.fbssistemas.integracaoscrum",
+    "productName": "FBS Integração Scrum",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "fbssistemas",
+        "repo": "fbs-integracao-scrum"
+      }
+    ],
+    "directories": {
+      "buildResources": ".",
+      "output": "build"
+    },
+    "win": {
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "fbssistemas",
+      "icon": "assets/icon.ico"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbssistemas/fbs-integracao-scrum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fbssistemas/fbs-integracao-scrum/issues"
+  },
+  "homepage": "https://github.com/fbssistemas/fbs-integracao-scrum#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "electron-log": "^4.3.0",
+    "electron-updater": "^4.3.5",
+    "oracledb": "^5.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1"
+  }
+}
